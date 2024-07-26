@@ -6,7 +6,7 @@ var sqlDatabase = builder.AddSqlServer("sqlserver", passwordParameter)
     .WithDataVolume()
     .AddDatabase("sqldb");
 
-var weatherApi = builder.AddProject<Projects.AspireJavaScript_MinimalApi>("weatherapi")
+var weatherApi = builder.AddProject<Projects.PersonalChef_Api>("weatherapi")
     .WithReference(sqlDatabase)
     .WithExternalHttpEndpoints();
 
@@ -17,7 +17,7 @@ builder.AddNpmApp("angular", "../PersonalChef.Client.Web")
     .WithExternalHttpEndpoints()
     .PublishAsDockerFile();
 
-builder.AddProject<Projects.DatabaseMigrations_MigrationService>("migration")
+builder.AddProject<Projects.PersonalChef_ApiModel_MigrationService>("migration")
        .WithReference(sqlDatabase);
 
 builder.Build().Run();

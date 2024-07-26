@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-	<ProjectReference Include="..\DatabaseMigrations.ApiModel\DatabaseMigrations.ApiModel.csproj" />
-	  <ProjectReference Include="..\DatabaseMigrations.MigrationService\DatabaseMigrations.MigrationService.csproj" />
+	<ProjectReference Include="..\PersonalChef.ApiModel\PersonalChef.ApiModel.csproj" />
+	  <ProjectReference Include="..\PersonalChef.ApiModel.MigrationService\PersonalChef.ApiModel.MigrationService.csproj" />
     <ProjectReference Include="..\PersonalChef.ServiceDefaults\PersonalChef.ServiceDefaults.csproj" />
   </ItemGroup>
 

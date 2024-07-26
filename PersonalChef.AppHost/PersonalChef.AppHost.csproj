@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AspireJavaScript.MinimalApi\AspireJavaScript.MinimalApi.csproj" />
-	<ProjectReference Include="..\DatabaseMigrations.MigrationService\DatabaseMigrations.MigrationService.csproj" />
+	<ProjectReference Include="..\PersonalChef.ApiModel.MigrationService\PersonalChef.ApiModel.MigrationService.csproj" />
+	<ProjectReference Include="..\PersonalChef.Api\PersonalChef.Api.csproj" />
   </ItemGroup>
 
   <Target Name="RestoreNpm" BeforeTargets="Build" Condition=" '$(DesignTimeBuild)' != 'true' ">
