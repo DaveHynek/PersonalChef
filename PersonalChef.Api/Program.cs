@@ -10,13 +10,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
-builder.Services.AddDbContextPool<MyDb1Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("sqldb"), sqlOptions =>
+builder.Services.AddDbContextPool<RecipeContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PersonalChefDb"), sqlOptions =>
     {
         // Workround for https://github.com/dotnet/aspire/issues/1023
         sqlOptions.ExecutionStrategy(c => new RetryingSqlServerRetryingExecutionStrategy(c));
     }));
-builder.EnrichSqlServerDbContext<MyDb1Context>(settings =>
+builder.EnrichSqlServerDbContext<RecipeContext>(settings =>
     // Disable Aspire default retries as we're using a custom execution strategy
     settings.DisableRetry = true);
 
@@ -57,18 +57,14 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
-app.MapGet("/", async (MyDb1Context context) =>
+app.MapGet("/", async (RecipeContext context) =>
 {
-    var entry = new Entry();
-    await context.Entries.AddAsync(entry);
-    await context.SaveChangesAsync();
-
-    var entries = await context.Entries.ToListAsync();
+    var entries = await context.MeasurementUnits.ToListAsync();
 
     return new
     {
         totalEntries = entries.Count,
-        entries = entries
+        units = entries
     };
 });
 

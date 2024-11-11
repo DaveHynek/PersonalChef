@@ -26,7 +26,7 @@ public class ApiDbInitializer(
         try
         {
             using var scope = serviceProvider.CreateScope();
-            var dbContext = scope.ServiceProvider.GetRequiredService<MyDb1Context>();
+            var dbContext = scope.ServiceProvider.GetRequiredService<RecipeContext>();
 
             await EnsureDatabaseAsync(dbContext, cancellationToken);
             await RunMigrationAsync(dbContext, cancellationToken);
@@ -40,7 +40,7 @@ public class ApiDbInitializer(
         hostApplicationLifetime.StopApplication();
     }
 
-    private static async Task EnsureDatabaseAsync(MyDb1Context dbContext, CancellationToken cancellationToken)
+    private static async Task EnsureDatabaseAsync(RecipeContext dbContext, CancellationToken cancellationToken)
     {
         var dbCreator = dbContext.GetService<IRelationalDatabaseCreator>();
 
@@ -56,7 +56,7 @@ public class ApiDbInitializer(
         });
     }
 
-    private static async Task RunMigrationAsync(MyDb1Context dbContext, CancellationToken cancellationToken)
+    private static async Task RunMigrationAsync(RecipeContext dbContext, CancellationToken cancellationToken)
     {
         var strategy = dbContext.Database.CreateExecutionStrategy();
         await strategy.ExecuteAsync(async () =>
