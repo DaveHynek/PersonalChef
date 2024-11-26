@@ -10,7 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
-builder.Services.AddDbContextPool<RecipeContext>(options =>
+builder.Services.AddControllers();
+builder.Services.AddDbContextFactory<RecipeContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("PersonalChefDb"), sqlOptions =>
     {
         // Workround for https://github.com/dotnet/aspire/issues/1023
@@ -23,6 +24,10 @@ builder.EnrichSqlServerDbContext<RecipeContext>(settings =>
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
+
+app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller}/{action=Index}/{id?}");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
