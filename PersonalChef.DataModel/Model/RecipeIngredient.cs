@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using PersonalChef.Data.Converter;
 
-namespace PersonalChef.ApiModel.Model
+namespace PersonalChef.DataModel.Model
 {
     public class RecipeIngredient
     {

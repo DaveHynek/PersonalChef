@@ -1,4 +1,4 @@
-﻿using PersonalChef.ApiModel.Common;
+﻿using PersonalChef.DataModel.Common;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 
-namespace PersonalChef.ApiModel.Model
+namespace PersonalChef.DataModel.Model
 {
     public class MeasurementUnit
     {

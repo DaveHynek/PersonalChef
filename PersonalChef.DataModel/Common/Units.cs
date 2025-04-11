@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace PersonalChef.ApiModel.Common
+namespace PersonalChef.DataModel.Common
 {
     public enum Units
     {

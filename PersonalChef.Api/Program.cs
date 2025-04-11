@@ -1,4 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using PersonalChef.Api.Mappers;
+using PersonalChef.Api.Models;
+using PersonalChef.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +23,12 @@ builder.Services.AddDbContextFactory<RecipeContext>(options =>
 builder.EnrichSqlServerDbContext<RecipeContext>(settings =>
     // Disable Aspire default retries as we're using a custom execution strategy
     settings.DisableRetry = true);
+
+builder.Services.AddScoped<IRecipeService, RecipeService>();
+builder.Services.AddScoped<IMapper<PersonalChef.DataModel.Model.Recipe, Recipe>, RecipeMapper>();
+builder.Services.AddScoped<IMapper<PersonalChef.DataModel.Model.RecipeStep, RecipeStep>, RecipeStepMapper>();
+builder.Services.AddScoped<IMapper<PersonalChef.DataModel.Model.RecipeIngredient, RecipeIngredient>, RecipeIngredientMapper>();
+
 
 var app = builder.Build();
 

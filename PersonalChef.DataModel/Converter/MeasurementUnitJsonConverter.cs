@@ -1,11 +1,11 @@
-﻿using PersonalChef.ApiModel.Model;
-using System;
-using PersonalChef.ApiModel.Common;
+﻿using System;
 using System.Reflection;
 using System.ComponentModel;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using PersonalChef.DataModel.Model;
+using PersonalChef.DataModel.Common;
 
 namespace PersonalChef.Data.Converter
 {

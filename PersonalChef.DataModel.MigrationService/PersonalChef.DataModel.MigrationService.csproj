@@ -22,7 +22,7 @@
   <ItemGroup>
     <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
     
-    <ProjectReference Include="..\PersonalChef.ApiModel\PersonalChef.ApiModel.csproj" />
+    <ProjectReference Include="..\PersonalChef.DataModel\PersonalChef.DataModel.csproj" />
     <ProjectReference Include="..\PersonalChef.ServiceDefaults\PersonalChef.ServiceDefaults.csproj" />
   </ItemGroup>
 

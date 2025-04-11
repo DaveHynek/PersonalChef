@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PersonalChef.ApiModel.Model
+namespace PersonalChef.DataModel.Model
 {
     public class Ingredient
     {

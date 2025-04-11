@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	<ProjectReference Include="..\PersonalChef.ApiModel.MigrationService\PersonalChef.ApiModel.MigrationService.csproj" />
+	<ProjectReference Include="..\PersonalChef.DataModel.MigrationService\PersonalChef.DataModel.MigrationService.csproj" />
 	<ProjectReference Include="..\PersonalChef.Api\PersonalChef.Api.csproj" />
   </ItemGroup>
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace PersonalChef.ApiModel.Model
+namespace PersonalChef.DataModel.Model
 {
     public class Recipe
     {

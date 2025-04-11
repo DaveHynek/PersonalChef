@@ -2,8 +2,9 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using Microsoft.EntityFrameworkCore;
-using PersonalChef.ApiModel.Common;
 using PersonalChef.ApiModel.Model;
+using PersonalChef.DataModel.Common;
+using PersonalChef.DataModel.Model;
 using static Azure.Core.HttpHeader;
 
 public class RecipeContext(DbContextOptions<RecipeContext> options) : DbContext(options)

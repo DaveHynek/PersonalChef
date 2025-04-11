@@ -17,7 +17,7 @@ builder.AddNpmApp("angular", "../PersonalChef.Client.Web")
     .WithExternalHttpEndpoints()
     .PublishAsDockerFile();
 
-builder.AddProject<Projects.PersonalChef_ApiModel_MigrationService>("migration")
+builder.AddProject<Projects.PersonalChef_DataModel_MigrationService>("migration")
        .WithReference(sqlDatabase);
 
 builder.Build().Run();

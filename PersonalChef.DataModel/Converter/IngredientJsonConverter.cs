@@ -1,11 +1,11 @@
-﻿using PersonalChef.ApiModel.Model;
-using System;
+﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using PersonalChef.ApiModel.Common;
+using PersonalChef.DataModel.Common;
 using System.Reflection;
 using System.ComponentModel;
 using System.Linq;
+using PersonalChef.DataModel.Model;
 
 namespace PersonalChef.Data.Converter
 {
@@ -20,7 +20,7 @@ namespace PersonalChef.Data.Converter
         {
             return new Ingredient
             {
-                Name = reader.GetString()
+                Name = reader.GetString() ?? string.Empty
             };
         }
 

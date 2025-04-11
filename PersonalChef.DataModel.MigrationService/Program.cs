@@ -17,7 +17,7 @@ builder.Services.AddDbContextPool<RecipeContext>(options =>
     {
         // Workround for https://github.com/dotnet/aspire/issues/1023
         sqlOptions.ExecutionStrategy(c => new RetryingSqlServerRetryingExecutionStrategy(c));
-        sqlOptions.MigrationsAssembly("PersonalChef.ApiModel.MigrationService");
+        sqlOptions.MigrationsAssembly("PersonalChef.DataModel.MigrationService");
     }));
 builder.EnrichSqlServerDbContext<RecipeContext>(settings =>
     // Disable Aspire default retries as we're using a custom execution strategy
