@@ -10,7 +10,7 @@ var weatherApi = builder.AddProject<Projects.PersonalChef_Api>("weatherapi")
     .WithReference(sqlDatabase)
     .WithExternalHttpEndpoints();
 
-builder.AddNpmApp("angular", "../PersonalChef.Client.Web")
+builder.AddJavaScriptApp("angular", "../PersonalChef.Client.Web", "start")
     .WithReference(sqlDatabase)
     .WithReference(weatherApi)
     .WithHttpEndpoint(env: "PORT")

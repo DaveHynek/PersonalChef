@@ -47,11 +47,19 @@ public class ApiDbInitializer(
         var strategy = dbContext.Database.CreateExecutionStrategy();
         await strategy.ExecuteAsync(async () =>
         {
-            // Create the database if it does not exist.
-            // Do this first so there is then a database to start a transaction against.
-            if (!await dbCreator.ExistsAsync(cancellationToken))
+            try
             {
-                await dbCreator.CreateAsync(cancellationToken);
+                // Create the database if it does not exist.
+                // Do this first so there is then a database to start a transaction against.
+                if (!await dbCreator.ExistsAsync(cancellationToken))
+                {
+                    await dbCreator.CreateAsync(cancellationToken);
+                }
+            }
+            catch (Exception)
+            {
+                // Database is not ready yet.  Rethrow to trigger a retry;
+                throw;
             }
         });
     }
